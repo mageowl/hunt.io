@@ -1,0 +1,22 @@
+{
+  "name": "hunt.io",
+  "version": "1.0.0",
+  "description": "A game of hunting monsters",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seattleowl/hunt.io.git"
+  },
+  "author": "OwL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seattleowl/hunt.io/issues"
+  },
+  "homepage": "https://github.com/seattleowl/hunt.io#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
