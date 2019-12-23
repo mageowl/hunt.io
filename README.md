@@ -1,3 +1,3 @@
 # HUNT.IO
 
-hunt.io is currently avalble at hunt-io.heroku.app
+hunt.io is currently avalble at hunt-io.herokuapp.com
