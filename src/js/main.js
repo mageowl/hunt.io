@@ -72,7 +72,7 @@ function create() {
 
 function update() {
     lasers.list.forEach((obj) => {
-        obj.y += (Math.sin(obj.angle) * 10)
-        obj.x += (Math.cos(obj.angle) * 10)
+        obj.x += (Math.sin(obj.angle) * 10)
+        obj.y += (Math.cos(obj.angle) * 10)
     })
 }
