@@ -21,6 +21,9 @@ const skins = [
     "alex"
 ]
 
+let mX
+let mY
+
 let playerSkin = "alex-player"
 let playerProj = "alex-laser"
 let playerDir = 90
@@ -38,26 +41,31 @@ function preload() {
 
 const Laser = new Phaser.Class({
 
-    Extends: Phaser.GameObjects.Image,
+    Extends: Phaser.GameObjects.Sprite,
 
     initialize:
 
         function Laser(scene, x, y) {
-            Phaser.GameObjects.Image.call(this, scene);
+            Phaser.GameObjects.Sprite.call(this, scene);
 
             this.setTexture(playerProj);
             this.setPosition(x, y);
             this.setScale(3);
             this.angle = playerDir
+
+            this.targetX = mX
+            this.targetY = mY
         }
 
 })
 
 function create() {
-    player = this.physics.add.image(400, 100, playerSkin)
+    player = this.physics.add.sprite(400, 100, playerSkin)
     this.input.on('pointermove', function (cursor) {
         playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)) + 90
         player.angle = playerDir
+        mX = cursor.x
+        mY = cursor.y
     }, this)
     this.input.on('pointerdown', function (pointer) {
 
@@ -72,7 +80,6 @@ function create() {
 
 function update() {
     lasers.list.forEach((obj) => {
-        obj.x += (Math.sin(Phaser.Math.RadToDeg(obj.angle)) * 10)
-        obj.y += (Math.cos(Phaser.Math.RadToDeg(obj.angle)) * 10)
+        this.physics.moveTo(obj, obj.targetX, obj.targetY, 500)
     })
 }
