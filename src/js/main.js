@@ -58,18 +58,19 @@ function create() {
         playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)) + 90
         player.angle = playerDir
     }, this)
+    this.input.on('pointerdown', function (pointer) {
+
+        console.log('down');
+
+        lasers.add(new Laser(this, player.x, player.y))
+
+    }, this)
 
     lasers = this.add.container(0, 0)
 }
 
 function update() {
-    if (game.input.activePointer.leftButton.isDown) {
-        // Player is firing laser
-        console.log("fire")
-        this.children.add(new Laser(this, player.x, player.y))
-    }
-
     lasers.list.forEach((obj) => {
-        obj.x++
+        obj.y++
     })
 }
