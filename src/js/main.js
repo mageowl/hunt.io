@@ -63,9 +63,13 @@ function create() {
 }
 
 function update() {
-    if (this.input.activePointer.isDown) {
+    if (game.input.activePointer.leftButton.isDown) {
         // Player is firing laser
         console.log("fire")
         this.children.add(new Laser(this, player.x, player.y))
     }
+
+    lasers.list.forEach((obj) => {
+        obj.x++
+    })
 }
