@@ -46,7 +46,8 @@ const Laser = new Phaser.Class({
     initialize:
 
         function Laser(scene, x, y) {
-            Phaser.GameObjects.Sprite.call(this, scene);
+            Phaser.GameObjects.Sprite.call(this, scene)
+            game.physics.world.enable(this)
 
             this.setTexture(playerProj);
             this.setPosition(x, y);
