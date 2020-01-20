@@ -35,15 +35,15 @@
 
         function create() {
             player = this.physics.add.image(400, 100, "player")
-
-        }
-
-        function update() {
             this.input.on('pointermove', function (cursor) {
                 let angle = Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)
                 console.log(angle)
                 player.angle = angle
             }, this)
+        }
+
+        function update() {
+
         }
     </script>
 </html>
