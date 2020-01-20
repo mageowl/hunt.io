@@ -30,8 +30,8 @@ let lasers
 
 function preload() {
     skins.forEach(skin => {
-        this.load.image(skin + "-player", `./recources/image/players/${skin}/player.png`)
-        this.load.image(skin + "-laser", `./recources/image/players/${skin}/laser.png`)
+        this.load.image(skin + "-player", `./src/image/players/${skin}/player.png`)
+        this.load.image(skin + "-laser", `./src/image/players/${skin}/laser.png`)
     });
 }
 
