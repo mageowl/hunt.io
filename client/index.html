@@ -39,7 +39,7 @@
             this.input.on('pointermove', function (cursor) {
                 let angle = Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)
                 console.log(angle)
-                player.angle = angle * mp
+                player.angle = Phaser.Math.RadToDeg(angle)
             }, this)
         }
 
