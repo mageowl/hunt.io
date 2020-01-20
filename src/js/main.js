@@ -65,6 +65,7 @@ function update() {
     switch (this.input.activePointer.button) {
         case 1:
             // Player is firing laser
+            console.log("fire")
             this.children.add(new Laser(this, player.x, player.y))
     }
 }
