@@ -48,6 +48,7 @@ const Laser = new Phaser.Class({
             this.setTexture(playerProj);
             this.setPosition(x, y);
             this.setScale(3);
+            this.angle = playerDir
         }
 
 })
