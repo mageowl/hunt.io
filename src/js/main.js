@@ -10,7 +10,8 @@ const config = {
     },
     scene: {
         preload,
-        create
+        create,
+        update
     }
 }
 
@@ -62,7 +63,7 @@ function create() {
 }
 
 function update() {
-    switch (this.input.activePointer.button) {
+    switch (this.input.activePointer.buttons) {
         case 1:
             // Player is firing laser
             console.log("fire")
