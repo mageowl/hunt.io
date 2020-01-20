@@ -28,6 +28,7 @@
         let playerSkin = "alex"
 
         let player
+        let mp = 90
 
         function preload() {
             this.load.image("player", "./recources/image/" + playerSkin + ".png");
@@ -38,7 +39,7 @@
             this.input.on('pointermove', function (cursor) {
                 let angle = Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)
                 console.log(angle)
-                player.angle = angle * 360
+                player.angle = angle * mp
             }, this)
         }
 
