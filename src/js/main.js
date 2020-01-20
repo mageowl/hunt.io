@@ -63,10 +63,9 @@ function create() {
 }
 
 function update() {
-    switch (this.input.activePointer.buttons) {
-        case 1:
-            // Player is firing laser
-            console.log("fire")
-            this.children.add(new Laser(this, player.x, player.y))
+    if (this.input.activePointer.isDown) {
+        // Player is firing laser
+        console.log("fire")
+        this.children.add(new Laser(this, player.x, player.y))
     }
 }
