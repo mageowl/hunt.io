@@ -35,14 +35,21 @@ function preload() {
     });
 }
 
-class Laser extends Phaser.Physics.Arcade.Image {
-    constructor(damage, angle, x, y) {
-        super(game.scene.getIndex(0), x, y, playerProj)
-        this.damage = damage
-        this.angle = angle
-        lasers.add(this)
-    }
-}
+const Laser = new Phaser.Class({
+
+    Extends: Phaser.GameObjects.Image,
+
+    initialize:
+
+        function Laser(scene, x, y) {
+            Phaser.GameObjects.Image.call(this, scene);
+
+            this.setTexture(playerProj);
+            this.setPosition(x, y);
+            this.setScale(3);
+        }
+
+})
 
 function create() {
     player = this.physics.add.image(400, 100, playerSkin)
@@ -58,6 +65,6 @@ function update() {
     switch (this.input.activePointer.button) {
         case 1:
             // Player is firing laser
-            let laser = new Laser(1, playerDir, player.x, player.y)
+            this.children.add(new Laser(this, player.x, player.y))
     }
 }
