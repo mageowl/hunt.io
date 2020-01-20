@@ -6,6 +6,6 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/client/index.html")
 })
 
-app.use(express.static("/recources/"))
+app.use("/recources", express.static("recources"))
 
 app.listen(PORT)
