@@ -38,7 +38,7 @@
             this.input.on('pointermove', function (cursor) {
                 let angle = Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)
                 console.log(angle)
-                player.angle = angle
+                player.angle = angle * 360
             }, this)
         }
 
