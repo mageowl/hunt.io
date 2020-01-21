@@ -79,6 +79,6 @@ function create() {
 
 function update() {
     lasers.list.forEach((obj) => {
-        this.physics.moveTo(obj, obj.targetX, obj.targetY, 500)
+        this.physics.moveTo(obj, obj.targetX, obj.targetY, 5)
     })
 }
