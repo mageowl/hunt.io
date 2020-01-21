@@ -61,8 +61,6 @@ function create() {
     player = this.physics.add.sprite(400, 100, playerSkin)
     player.setCollideWorldBounds(true)
     this.input.on('pointermove', function (cursor) {
-        playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)) + 90
-        player.angle = playerDir
         mX = cursor.x
         mY = cursor.y
     }, this)
@@ -92,5 +90,9 @@ function update() {
     player.setVelocity(0)
     player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 30)
     player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 30)
+
+    // Calc player angle
+    playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, mX, mY)) + 90
+    player.angle = playerDir
 
 }
