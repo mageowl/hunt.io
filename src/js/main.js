@@ -37,37 +37,20 @@ function preload() {
     skins.forEach(skin => {
         this.load.image(skin + "-player", `./src/image/players/${skin}/player.png`)
         this.load.image(skin + "-laser", `./src/image/players/${skin}/laser.png`)
-    });
+    })
 }
-
-const Laser = new Phaser.Class({
-
-    Extends: Phaser.GameObjects.Sprite,
-
-    initialize:
-
-        function Laser(scene, x, y) {
-            Phaser.GameObjects.Sprite.call(this, scene)
-
-            this.setTexture(playerProj);
-            this.setPosition(x, y);
-            this.setScale(3);
-            this.angle = playerDir
-        }
-
-})
 
 function create() {
     player = this.physics.add.sprite(400, 100, playerSkin)
+    player.setScale(0.5)
     player.setCollideWorldBounds(true)
     this.input.on('pointermove', function (cursor) {
+        // Locate mouse
         mX = cursor.x
         mY = cursor.y
     }, this)
     this.input.on('pointerdown', function (pointer) {
-
-        console.log('down');
-
+        // Player is firing
         let laser = new Laser(this, player.x, player.y)
         lasers.add(laser)
         this.physics.world.enable(laser)
@@ -78,6 +61,10 @@ function create() {
     lasers = this.add.container(0, 0)
 
     wads = this.input.keyboard.addKeys('W,A,D,S')
+
+    enemies = this.add.container(0, 0)
+
+    enemy1 = enemies.add(new Enemy(this, 100, 100))
 }
 
 function update() {
