@@ -52,9 +52,6 @@ const Laser = new Phaser.Class({
             this.setPosition(x, y);
             this.setScale(3);
             this.angle = playerDir
-
-            this.targetX = mX
-            this.targetY = mY
         }
 
 })
@@ -71,12 +68,13 @@ function create() {
 
         console.log('down');
 
-        lasers.add(new Laser(this, player.x, player.y))
+        let laser = new Laser(this, player.x, player.y)
+        lasers.add(laser)
+        this.physics.world.enable(laser)
 
     }, this)
 
     lasers = this.add.container(0, 0)
-    this.physics.world.enable(lasers)
 }
 
 function update() {
