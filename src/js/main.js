@@ -88,8 +88,8 @@ function update() {
     })
 
     player.setVelocity(0)
-    player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 30)
-    player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 30)
+    player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 100)
+    player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 100)
 
     // Calc player angle
     playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, mX, mY)) + 90
