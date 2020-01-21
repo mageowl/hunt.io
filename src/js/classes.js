@@ -5,6 +5,7 @@ class Laser extends Phaser.GameObjects.Sprite {
         super(scene, x, y, playerProj)
 
         this.setScale(2)
+        this.angle = playerDir
     }
 
 }
