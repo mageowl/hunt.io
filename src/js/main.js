@@ -30,6 +30,7 @@ let playerDir = 90
 
 let player
 let lasers
+let wads
 
 
 function preload() {
@@ -58,6 +59,7 @@ const Laser = new Phaser.Class({
 
 function create() {
     player = this.physics.add.sprite(400, 100, playerSkin)
+    player.setCollideWorldBounds(true)
     this.input.on('pointermove', function (cursor) {
         playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, cursor.x, cursor.y)) + 90
         player.angle = playerDir
@@ -76,7 +78,19 @@ function create() {
     }, this)
 
     lasers = this.add.container(0, 0)
+
+    wads = this.input.keyboard.addKeys('W,A,D,S')
 }
 
 function update() {
+    lasers.list.forEach((obj) => {
+        if (obj.x > 800 || obj.y > 600 || obj.x < 0 || obj.y < 0) {
+            obj.destroy()
+        }
+    })
+
+    player.setVelocity(0)
+    player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 5)
+    player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 5)
+
 }
