@@ -34,6 +34,7 @@ let wads
 
 
 function preload() {
+    this.load.image("zombie", `./src/image/enemies/lvl1.png`)
     skins.forEach(skin => {
         this.load.image(skin + "-player", `./src/image/players/${skin}/player.png`)
         this.load.image(skin + "-laser", `./src/image/players/${skin}/laser.png`)
