@@ -71,6 +71,7 @@ function create() {
         let laser = new Laser(this, player.x, player.y)
         lasers.add(laser)
         this.physics.world.enable(laser)
+        this.physics.moveTo(obj, pointer.x, pointer.y, 5)
 
     }, this)
 
@@ -78,7 +79,4 @@ function create() {
 }
 
 function update() {
-    lasers.list.forEach((obj) => {
-        this.physics.moveTo(obj, obj.targetX, obj.targetY, 5)
-    })
 }
