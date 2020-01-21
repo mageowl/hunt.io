@@ -90,7 +90,7 @@ function update() {
     })
 
     player.setVelocity(0)
-    player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 5)
-    player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 5)
+    player.setVelocityX(((wads.D.isDown) + -(wads.A.isDown)) * 30)
+    player.setVelocityY(((wads.S.isDown) + -(wads.W.isDown)) * 30)
 
 }
