@@ -43,6 +43,7 @@ function preload() {
 function create() {
     player = this.physics.add.sprite(400, 100, playerSkin)
     player.setScale(0.5)
+    player.depth = 1
     player.setCollideWorldBounds(true)
     this.input.on('pointermove', function (cursor) {
         // Locate mouse

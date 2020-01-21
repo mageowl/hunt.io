@@ -4,7 +4,7 @@ class Laser extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
         super(scene, x, y, playerProj)
 
-        this.setOrigin(-20, -20)
+        this.setScale(2)
     }
 
 }
