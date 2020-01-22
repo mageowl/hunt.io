@@ -58,7 +58,7 @@ function create() {
         // Player is firing
         let laser = lasers.create(player.x, player.y)
         this.physics.world.enable(laser)
-        this.physics.velocityFromAngle(playerDir + 90, 500, laser.body.velocity)
+        this.physics.velocityFromAngle(playerDir - 90, 500, laser.body.velocity)
 
     }, this)
 
@@ -73,7 +73,7 @@ function create() {
 }
 
 function update() {
-    lasers.list.forEach((obj) => {
+    lasers.children.each((obj) => {
         if (obj.x > 800 || obj.y > 600 || obj.x < 0 || obj.y < 0) {
             obj.destroy()
         }
