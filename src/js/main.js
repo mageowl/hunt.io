@@ -96,6 +96,6 @@ function update() {
 }
 
 function enemyHit(laser, target) {
-    lasers.delete(laser, true, true)
+    lasers.remove(laser, true, true)
     target.destroy()
 }
