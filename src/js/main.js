@@ -67,14 +67,10 @@ function create() {
     wads = this.input.keyboard.addKeys('W,A,D,S')
 
     enemies = this.add.container(0, 0)
-    newFunction()
-    enemyLaserColl = this.physics.add.overlap(lasers, enemies, enemyHit, null)
+    this.physics.world.enable(enemies)
+    enemyLaserColl = this.physics.add.overlap(lasers, enemy1, enemyHit, null)
 
     enemy1 = enemies.add(new Enemy(this, 100, 100))
-
-    function newFunction() {
-        this.physics.world.enable(enemies);
-    }
 }
 
 function update() {
