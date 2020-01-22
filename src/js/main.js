@@ -70,7 +70,7 @@ function create() {
     this.physics.world.enable(enemies)
 
     enemy1 = enemies.add(new Enemy(this, 100, 100))
-    enemyLaserColl = this.physics.add.overlap(lasers, enemy1, enemyHit, null)
+    enemyLaserColl = this.physics.add.overlap(lasers, enemy1, enemyHit, null, this)
 }
 
 function update() {
@@ -95,6 +95,7 @@ function update() {
 
 }
 
-function enemyHit() {
-    console.log("HIT")
+function enemyHit(laser, target) {
+    lasers.delete(laser, true, true)
+    target.destroy()
 }
