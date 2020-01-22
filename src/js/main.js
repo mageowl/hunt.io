@@ -2,6 +2,7 @@ const config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    pixelArt: true,
     physics: {
         default: 'arcade',
         arcade: {
@@ -43,6 +44,7 @@ function preload() {
 
 function create() {
     player = this.physics.add.sprite(400, 100, playerSkin)
+
     player.setScale(0.5)
     player.depth = 1
     player.setCollideWorldBounds(true)
@@ -83,5 +85,10 @@ function update() {
     // Calc player angle
     playerDir = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(player.x, player.y, mX, mY)) + 90
     player.angle = playerDir
+
+    // Enemy AI
+    enemies.list.forEach((obj) => {
+        obj.tick()
+    })
 
 }
