@@ -59,7 +59,7 @@ function create() {
         let laser = new Laser(this, player.x, player.y)
         lasers.add(laser)
         this.physics.world.enable(laser)
-        this.physics.velocityFromAngle(playerDir, 100, laser.body.velocity)
+        this.physics.velocityFromAngle(playerDir + 90, 500, laser.body.velocity)
 
     }, this)
 
