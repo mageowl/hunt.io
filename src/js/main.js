@@ -67,6 +67,7 @@ function create() {
     wads = this.input.keyboard.addKeys('W,A,D,S')
 
     enemies = this.add.container(0, 0)
+    this.physics.add.collider(lasers, enemies, enemyHit, null)
 
     enemy1 = enemies.add(new Enemy(this, 100, 100))
 }
@@ -91,4 +92,8 @@ function update() {
         obj.tick(player)
     })
 
+}
+
+function enemyHit() {
+    
 }
