@@ -88,7 +88,7 @@ function update() {
 
     // Enemy AI
     enemies.list.forEach((obj) => {
-        obj.tick()
+        obj.tick(player)
     })
 
 }
