@@ -56,14 +56,13 @@ function create() {
     }, this)
     this.input.on('pointerdown', function (pointer) {
         // Player is firing
-        let laser = new Laser(this, player.x, player.y)
-        lasers.add(laser)
+        let laser = lasers.create(player.x, player.y)
         this.physics.world.enable(laser)
         this.physics.velocityFromAngle(playerDir + 90, 500, laser.body.velocity)
 
     }, this)
 
-    lasers = this.add.container(0, 0)
+    lasers = this.add.group({classType: Laser})
 
     wads = this.input.keyboard.addKeys('W,A,D,S')
 
