@@ -95,5 +95,5 @@ function update() {
 }
 
 function enemyHit() {
-    
+    console.log("HIT")
 }
