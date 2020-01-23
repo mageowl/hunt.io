@@ -16,6 +16,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
         super(scene, x, y, "zombie")
 
         this.setScale(0.5)
+        this.game = scene
        scene.physics.world.enable(this)
     }
 
@@ -24,6 +25,6 @@ class Enemy extends Phaser.GameObjects.Sprite {
         let angle = Phaser.Math.RadToDeg(Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y)) + 90
         this.angle = angle
         // Velocity from angle
-        this.physics.velocityFromAngle(angle, 10, this.body.velocity)
+        this.game.physics.velocityFromAngle(angle, 10, this.body.velocity)
     }
 }
