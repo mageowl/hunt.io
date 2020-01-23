@@ -16,7 +16,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
         super(scene, x, y, "zombie")
 
         this.setScale(0.5)
-        this.physics.world.enable(enemies)
+       scene.physics.world.enable(this)
     }
 
     tick(player) {
