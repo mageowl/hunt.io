@@ -55,7 +55,7 @@ function create() {
         mX = cursor.x
         mY = cursor.y
     }, this)
-    this.input.on('pointerdown', function (pointer) {
+    this.input.on('pointerdown', function () {
         // Player is firing
         let laser = lasers.create(player.x, player.y)
         this.physics.world.enable(laser)
@@ -71,6 +71,7 @@ function create() {
 
     enemy1 = enemies.add(new Enemy(this, 100, 100))
     enemyLaserColl = this.physics.add.overlap(lasers, enemy1, enemyHit, null, this)
+    enemyPlayerColl = this.physics.add.collider(player, enemy1)
 }
 
 function update() {
