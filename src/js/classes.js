@@ -13,9 +13,10 @@ class Laser extends Phaser.GameObjects.Sprite {
 class Enemy extends Phaser.GameObjects.Sprite {
 
     constructor(scene, x, y) {
-        super(scene, x, y, "zombie")
+        super(scene, 0, 0, "zombie")
 
         this.setScale(0.5)
+        this.setPosition(x, y)
     }
 
     tick(player) {
