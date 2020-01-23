@@ -70,8 +70,8 @@ function create() {
     enemies = this.add.container(0, 0)
 
     enemy1 = enemies.add(new Enemy(this, 100, 100))
-    enemyLaserColl = this.physics.add.overlap(lasers, enemy1, enemyHit, null, this)
-    enemyPlayerColl = this.physics.add.collider(player, enemy1)
+    enemyLaserColl = this.physics.add.overlap(lasers, enemies, enemyHit, null, this)
+    enemyPlayerColl = this.physics.add.collider(player, enemies)
 }
 
 function update() {

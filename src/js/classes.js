@@ -7,7 +7,6 @@ class Laser extends Phaser.GameObjects.Sprite {
         this.setScale(2)
         this.angle = playerDir
         scene.physics.world.enable(this)
-        scene.physics.add.existing(this)
     }
 
 }
@@ -20,7 +19,6 @@ class Enemy extends Phaser.GameObjects.Sprite {
         this.setScale(0.5)
         this.game = scene
         scene.physics.world.enable(this)
-        scene.physics.add.existing(this)
     }
 
     tick(player) {
